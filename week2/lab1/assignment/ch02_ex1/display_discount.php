@@ -9,25 +9,22 @@
     $discount = $list_price * $discount_percent * .01;
     $discount_price = $list_price - $discount;
     
-    $list_price_formatted = "$".number_format($list_price, 2);
-    $discount_percent_formatted = $discount_percent."%";
-    $discount_formatted = "$".number_format($discount_price, 2);
-    $discount_price_formatted = "$".number_format($discount_price,2);
+   
     
     
     if ( empty($product_description) ) {
-        $error_msg .= 'Product description field must be populated';
+        $error_msg .= 'Product description field must be populated ';
     }
     if ( !is_string($product_description) ) {
-        $error_msg .= "Product description must be valid";
+        $error_msg .= "Product description must be valid ";
     }
     
     
     if ( !is_numeric($list_price) ) {
-        $error_msg .= "List price must be a valid number";
+        $error_msg .= "List price must be a valid number ";        
     }
     if ( !is_numeric($discount_percent) ) {
-        $error_msg .= "Discount percent must be a valid number";
+        $error_msg .= "Discount percent must be a valid number ";
     }
     
     if ( !empty($error_msg) ) {
@@ -49,6 +46,10 @@
                 echo $_POST['discount_percent'];
             }
             
+             $list_price_formatted = "$".number_format($list_price, 2);
+    $discount_percent_formatted = $discount_percent."%";
+    $discount_formatted = "$".number_format($discount_price, 2);
+    $discount_price_formatted = "$".number_format($discount_price,2);
 
 ?>
 
