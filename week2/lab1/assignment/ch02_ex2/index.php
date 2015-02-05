@@ -1,11 +1,15 @@
 <?php 
 
-$investment = '';
-$interest_rate = '';
-$years = '';
+$investment = rand();
+$interest_rate = rand(0,15);
+$years = rand(0,50);
 
-?>
-
+if ( !empty($_POST)) {
+    $investment = $_POST['investment'];
+    $interest_rate = $_POST['interest_rate'];
+    $years = $_POST['years'];
+}
+    ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,6 +24,8 @@ $years = '';
     <?php if (!empty($error_message)) { ?>
         <p class="error"><?php echo $error_message; ?></p>
     <?php } // end if ?>
+        
+    
     <form action="display_results.php" method="post">
 
         <div id="data">
