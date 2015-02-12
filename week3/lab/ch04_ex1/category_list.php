@@ -5,6 +5,8 @@
     $query = 'SELECT * FROM categories
               ORDER BY categoryID';
     $categories = $db->query($query);
+    
+    
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -32,14 +34,38 @@
             <th>Name</th>
             <th>&nbsp;</th>
         </tr>
-       
+                <?php foreach ($categories as $category) : ?>
+                    <!--<option value="<?php echo $category['categoryID']; ?>">-->
+                        
+        <tr>
+                <th><?php echo $category['categoryName']; ?></th>
+                <th><form action="delete_category.php" method="post"
+                              id="delete_product_form">
+                        <input type="hidden" name="category_id"
+                               value="<?php echo $category['categoryID']; ?>" />
+                        <input type="submit" value="Delete" />
+                    </form>
+                </th>
+            </tr>
+                <?php endforeach; ?>
     <!-- add code for the rest of the table here -->
     
     </table>
     <br />
 
     <h2>Add Category</h2>
-    
+    <form action="add_category.php" method="post"
+                  id="add_category_form">
+
+                <label>Category:</label>
+                
+                <input type="input" name="categoryName" />
+                <br />
+
+                <label></label>
+                <input type="submit" value="Add Category" />
+                <br />
+            </form>
     <!-- add code for the form here -->
     
     <br />

@@ -90,7 +90,7 @@
                 <?php endforeach; ?>
             </table>
             <p><a href="add_product_form.php">Add Product</a></p>
-            <p><a href="category_list.php">List Categories</a></p>
+            <p><a href="category_list.php">List Categories</a></p>            
         </div>
     </div>
 
